@@ -7,6 +7,7 @@ namespace CatProgram
     class Cat
     {
         public string name;
+
         public int weight;
 
         public Cat()
