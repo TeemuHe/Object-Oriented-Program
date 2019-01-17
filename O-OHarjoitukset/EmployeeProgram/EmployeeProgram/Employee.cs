@@ -22,13 +22,12 @@ namespace EmployeeProgram
 
         public void PrintEmployeeInfo(string name, string id, string position, double salary)
         {
-            Console.WriteLine($"Työntekijä: {this.name}\nId: {this.id}\nTyötehtävä: {this.position}\nPalkka: {this.salary}");
+            Console.WriteLine($"Työntekijä: {this.name}\nId: {this.id}\nTyötehtävä: {this.position}\nPalkka: {this.salary}€");
             Console.WriteLine("-------------------------");
         }
 
-        public string CompareSalary(Employee firstEmployee, Employee secondEmployee)
+        public void CompareSalary(Employee firstEmployee, Employee secondEmployee)
         {
-            string text = "";
             if(this.salary > firstEmployee.salary && firstEmployee.salary > secondEmployee.salary)
             {
                 Console.WriteLine($"{this.name} saa enemmän palkkaa kuin {firstEmployee.name} ja {firstEmployee.name} saa enemmän kuin {secondEmployee.name}.");
@@ -53,7 +52,6 @@ namespace EmployeeProgram
             {
                 Console.WriteLine($"{secondEmployee.name} saa enemmän palkkaa kuin {firstEmployee.name} ja {firstEmployee.name} saa enemmän kuin {this.name}.");
             }
-            return text;
         }
     }
 }
