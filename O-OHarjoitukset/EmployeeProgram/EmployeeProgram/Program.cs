@@ -16,7 +16,8 @@ namespace EmployeeProgram
 
             for (int i = 0; i < 3; i++)
             {
-                employees[i].PrintEmployeeInfo("nimi", "id", "tehtävä", 0);
+                //employees[i].PrintEmployeeInfo("nimi", "id", "tehtävä", 0);
+                Console.WriteLine(employees[i]);
             }
 
             employees[0].CompareSalary(employees[1],employees[2]);

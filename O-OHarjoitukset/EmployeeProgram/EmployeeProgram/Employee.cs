@@ -25,7 +25,7 @@ namespace EmployeeProgram
             Console.WriteLine($"Työntekijä: {this.name}\nId: {this.id}\nTyötehtävä: {this.position}\nPalkka: {this.salary}€");
             Console.WriteLine("-------------------------");
         }
-
+        
         public void CompareSalary(Employee firstEmployee, Employee secondEmployee)
         {
             if(this.salary > firstEmployee.salary && firstEmployee.salary > secondEmployee.salary)
@@ -52,6 +52,10 @@ namespace EmployeeProgram
             {
                 Console.WriteLine($"{secondEmployee.name} saa enemmän palkkaa kuin {firstEmployee.name} ja {firstEmployee.name} saa enemmän kuin {this.name}.");
             }
+        }
+        public override string ToString()
+        {
+            return $"Nimi: {this.name}\nId: {this.id}\nTyötehtävä: {this.position}\nPalkka: {this.salary}€\n-----------------------";
         }
     }
 }
