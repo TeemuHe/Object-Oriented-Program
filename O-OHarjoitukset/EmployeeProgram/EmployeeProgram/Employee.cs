@@ -55,7 +55,7 @@ namespace EmployeeProgram
         }
         public override string ToString()
         {
-            return $"Nimi: {this.name}\nId: {this.id}\nTyötehtävä: {this.position}\nPalkka: {this.salary}€\n-----------------------";
+            return $"Nimi: {this.name}\nId: {this.id}\nTyötehtävä: {this.position}\nPalkka: {this.salary} €\n-----------------------";
         }
     }
 }

@@ -10,9 +10,9 @@ namespace EmployeeProgram
             Console.WriteLine("Työntekijäluokka");
 
             Employee[] employees = new Employee[3];
-            employees[0] = new Employee("Matti", 0, "Opettaja", 2500);
-            employees[1] = new Employee("Juha", 0, "Poliisi", 3000);
-            employees[2] = new Employee("Hannu", 0, "Myyjä", 1350);
+            employees[0] = new Employee("Matti", 0, "Opettaja", 2000);
+            employees[1] = new Employee("Juha", 0, "Poliisi", 1500);
+            employees[2] = new Employee("Hannu", 0, "Myyjä", 900);
 
             for (int i = 0; i < 3; i++)
             {
