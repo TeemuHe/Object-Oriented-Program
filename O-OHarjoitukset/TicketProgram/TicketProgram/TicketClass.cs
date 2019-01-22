@@ -15,6 +15,7 @@ namespace TicketProgram
         {
             Console.Write("Syötä ikäsi: ");
             age = int.Parse(Console.ReadLine());
+
             if (age < 7)
             {
                 double discount1 = 1;
