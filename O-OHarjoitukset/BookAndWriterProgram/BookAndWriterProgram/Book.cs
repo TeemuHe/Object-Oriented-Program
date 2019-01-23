@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BookAndWriterProgram
 {
-    class Kirja
+    class Book
     {
         public string name;
         public string author;
@@ -12,7 +12,7 @@ namespace BookAndWriterProgram
         public double price;
         public static string theme;
 
-        public Kirja()
+        public Book()
         {
             this.name = "";
             this.author = "";
@@ -20,7 +20,7 @@ namespace BookAndWriterProgram
             this.price = 0;
         }
 
-        public Kirja(string name, string author, string publisher, double price, string theme)
+        public Book(string name, string author, string publisher, double price, string theme)
         {
             this.name = name;
             this.author = author;
@@ -28,18 +28,25 @@ namespace BookAndWriterProgram
             this.price = price;
         }
 
-        public void HaeKirja(string name)
+        public void FindBook(string name)
         {
-            if (this.name != name)
+            if (this.name == name)
+            {
+                    Console.WriteLine($"Kirja: {this.name}\nKirjailija: {this.author}\n" +
+                    $"Julkaisija: {this.publisher}\nHinta: {this.price:C} €");
+            }
+            else
             {
                 Console.WriteLine("Kirjaa ei löytynyt");
                 Environment.Exit(1);
-            }
+            }              
         }
 
-        public void VaihdaTeema()
+        public void ChangeTheme()
         {
-            theme = "Jotain";
+            Console.Write("Syötä uusi teema: ");
+            theme = Console.ReadLine();
+            Console.Clear();
             Console.WriteLine($"Kirja: {this.name}\nKirjailija: {this.author}\n" +
                     $"Julkaisija: {this.publisher}\nHinta: {this.price:C}\nTeema: {theme}");
         }
@@ -48,10 +55,12 @@ namespace BookAndWriterProgram
         {
             get{ return price; }
 
-            set{if(price > 30)
-                 {
-                    Console.WriteLine($"Kirjan uusi hinta on {price * 0.9} €");
-                 }     
+            set
+            {
+                if (price > 30)
+                {
+                    Console.WriteLine($"Kirjan uusi hinta on {price * 0.9:C}");
+                }
             }
         }
     }
