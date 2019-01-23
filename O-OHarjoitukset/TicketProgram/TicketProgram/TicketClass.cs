@@ -6,10 +6,10 @@ namespace TicketProgram
 {
     class TicketClass
     {
-        public int age;
-        public string choise = null;
+        private int age;
+        private string choise = null;
         string text = "";
-        public double ticketPrice = 16;
+        private double ticketPrice = 16;
 
         public void Customer()
         {
