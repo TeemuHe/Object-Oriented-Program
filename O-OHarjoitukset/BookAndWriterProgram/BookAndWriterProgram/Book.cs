@@ -11,6 +11,7 @@ namespace BookAndWriterProgram
         public string publisher;
         public double price;
         public static string theme;
+        private string birthDay = "13.4.";
 
         public Book()
         {
@@ -42,13 +43,10 @@ namespace BookAndWriterProgram
             }              
         }
 
-        public void ChangeTheme()
+        public static void ChangeTheme()
         {
-            Console.Write("Syötä uusi teema: ");
+            Console.Write("Syötä teema: ");
             theme = Console.ReadLine();
-            Console.Clear();
-            Console.WriteLine($"Kirja: {this.name}\nKirjailija: {this.author}\n" +
-                    $"Julkaisija: {this.publisher}\nHinta: {this.price:C}\nTeema: {theme}");
         }
 
         public double Price
@@ -62,6 +60,23 @@ namespace BookAndWriterProgram
                     Console.WriteLine($"Kirjan uusi hinta on {price * 0.9:C}");
                 }
             }
+        }
+
+        public string AuthorInfo
+        {
+            get { return birthDay; }
+            set
+            {
+                birthDay = value;
+            }
+        }
+
+        public void TulostaTiedot(string author, string name, string birthDay)
+        {
+            this.AuthorInfo = birthDay;
+
+            Console.WriteLine($"Kirjailija: {this.author}\nKirja: {this.name}\n" +
+                    $"Syntymäpäivä: {AuthorInfo}");
         }
     }
 }

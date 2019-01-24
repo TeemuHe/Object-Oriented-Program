@@ -12,8 +12,10 @@ namespace BookAndWriterProgram
             Book toinenKirja = new Book("kirja", "Kirjankirjottaja", "publisheri", 22.22, "teema2");
             Book kolmasKirja = new Book("Kirjanro3", "Heikkinen", "Julkaisija", 11.11, "teemaa");
             kirja.FindBook("Aapinen");
-            kirja.ChangeTheme();
+            Book.ChangeTheme();
             kirja.Price = kirja.price;
+            kirja.AuthorInfo = kirja.author;
+            kirja.TulostaTiedot("", "", "on syntyny");
         }
     }
 }
