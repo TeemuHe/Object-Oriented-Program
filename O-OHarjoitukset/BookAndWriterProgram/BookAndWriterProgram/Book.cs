@@ -11,7 +11,7 @@ namespace BookAndWriterProgram
         public string publisher;
         public double price;
         public static string theme;
-        private string birthDay = "13.4.";
+        public string dateOfBirth;
 
         public Book()
         {
@@ -19,28 +19,39 @@ namespace BookAndWriterProgram
             this.author = "";
             this.publisher = "";
             this.price = 0;
+            this.dateOfBirth = "";
         }
 
-        public Book(string name, string author, string publisher, double price, string theme)
+        public Book(string name, string author, string publisher, double price, string theme, string dateOfBirth)
         {
             this.name = name;
             this.author = author;
             this.publisher = publisher;
             this.price = price;
+            this.dateOfBirth = dateOfBirth;
+        }
+
+        public void BookInfoPrinter()
+        {
+            Console.WriteLine($"Kirja: {this.name}\n" +
+                $"Kirjalija: {this.author}\n" +
+                $"Kustantaja: {this.publisher}\n" +
+                $"Teema: {theme}\n" +
+                $"Hinta: {this.price} €");
         }
 
         public void FindBook(string name)
         {
             if (this.name == name)
             {
-                    Console.WriteLine($"Kirja: {this.name}\nKirjailija: {this.author}\n" +
-                    $"Julkaisija: {this.publisher}\nHinta: {this.price:C} €");
+                Console.WriteLine($"Kirja: {this.name}\nKirjailija: {this.author}\n" +
+                $"Julkaisija: {this.publisher}\nHinta: {this.price:C}");
             }
             else
             {
                 Console.WriteLine("Kirjaa ei löytynyt");
                 Environment.Exit(1);
-            }              
+            }
         }
 
         public static void ChangeTheme()
@@ -51,7 +62,7 @@ namespace BookAndWriterProgram
 
         public double Price
         {
-            get{ return price; }
+            get { return price; }
 
             set
             {
@@ -62,21 +73,9 @@ namespace BookAndWriterProgram
             }
         }
 
-        public string AuthorInfo
+        public string Author
         {
-            get { return birthDay; }
-            set
-            {
-                birthDay = value;
-            }
-        }
-
-        public void TulostaTiedot(string author, string name, string birthDay)
-        {
-            this.AuthorInfo = birthDay;
-
-            Console.WriteLine($"Kirjailija: {this.author}\nKirja: {this.name}\n" +
-                    $"Syntymäpäivä: {AuthorInfo}");
+            get { return author; }
         }
     }
 }

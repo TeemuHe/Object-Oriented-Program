@@ -8,14 +8,20 @@ namespace BookAndWriterProgram
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Kirja ja kirjailija luokka");
-            Book kirja = new Book("Aapinen", "Mikael Agricola", "Joku", 32.95, "joku teema");
-            Book toinenKirja = new Book("kirja", "Kirjankirjottaja", "publisheri", 22.22, "teema2");
-            Book kolmasKirja = new Book("Kirjanro3", "Heikkinen", "Julkaisija", 11.11, "teemaa");
+            Book kirja = new Book("Aapinen", "A. Korhonen", "WSOY", 32.95, "", "13.4.1995");
+            Book toinenKirja = new Book("Ristikkokirja", "B. Koponen", "Otava", 22.22, "", "8.5.1984");
+            Book kolmasKirja = new Book("Taskukirja", "C.Virtanen", "Julkaisija", 11.11, "", "1.1.2001");
             kirja.FindBook("Aapinen");
             Book.ChangeTheme();
             kirja.Price = kirja.price;
-            kirja.AuthorInfo = kirja.author;
-            kirja.TulostaTiedot("", "", "on syntyny");
+            Console.WriteLine(kirja.Author);
+            Author author = new Author
+            {
+                Name = "A. Korhonen",
+                Birthday = "13.4.1995",
+                Book = kirja
+            };
+            author.PrintInfo();
         }
     }
 }
