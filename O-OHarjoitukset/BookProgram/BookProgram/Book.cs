@@ -16,6 +16,15 @@ namespace BookProgram
             this.title = title;
             Console.WriteLine($"Nimi: {this.title}.");
         }
+
+        public Book(string title, string author, string id, double price)
+        {
+            this.title = title;
+            this.author = author;
+            this.id = id;
+            this.price = price;
+        }
+
         public void Author(string author)
         {
             this.author = author;
