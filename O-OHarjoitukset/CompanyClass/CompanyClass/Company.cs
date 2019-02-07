@@ -8,20 +8,32 @@ namespace CompanyClass
     {
         public string title;
         public string address;
-        public string phone;
+        public string phoneNumber;
         public double income;
         public double extense;
 
-        public void Title(string title, string address, string phone, double income, double extense)
+        public Company()
+        {
+            this.title = "";
+            this.address = "";
+            this.phoneNumber = "";
+            this.income = 0;
+            this.extense = 0;
+        }
+
+        public Company(string title, string address, string phoneNumber, double income, double extense)
         {
             this.title = title;
             this.address = address;
-            this.phone = phone;
-            Console.WriteLine($"{title}\n{address}\n{phone}");
+            this.phoneNumber = phoneNumber;
+            this.income = income;
+            this.extense = extense;
         }
 
         public void Income()
         {
+            Console.WriteLine($"{title}\n{address}\n{phoneNumber}");
+
             Console.Write("Syötä firman tulot: ");
             income = int.Parse(Console.ReadLine());
             Console.Write("Syötä firman menot: ");
@@ -30,6 +42,8 @@ namespace CompanyClass
 
         public void Profit()
         {
+
+
             double profitPercent = (income - extense) / extense * 100;
             Console.WriteLine($"Firman voittoprosentti on {profitPercent:F0}%.");
 
