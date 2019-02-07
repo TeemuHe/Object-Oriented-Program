@@ -11,12 +11,6 @@ namespace BookProgram
         public string id;
         public double price;
 
-        public Book(string title)
-        {
-            this.title = title;
-            Console.WriteLine($"Nimi: {this.title}.");
-        }
-
         public Book(string title, string author, string id, double price)
         {
             this.title = title;
@@ -25,29 +19,15 @@ namespace BookProgram
             this.price = price;
         }
 
-        public void Author(string author)
+        public void PrintInfo()
         {
-            this.author = author;
-            Console.WriteLine($"Kirjailija: {this.author}.");
+            Console.WriteLine($"Nimi: {title}\nKirjailija: {author}" +
+                $"\nSarjanumero: {id}\nHinta: {price:C}");
         }
-        public void Id(string id)
-        {
-            this.id = id;
-            Console.WriteLine($"Sarjanumero: {this.id}.");
-        }
-        public void Price(double price)
-        {
-            this.price = price;
-            Console.WriteLine($"Hinta: {this.price}.");
-        }
-        /*public string PrintInfo()
-        {
-            Console.WriteLine($"Nimi: {title}\nKirjoittaja: {author}\nSarjanumero{id}\nHinta: {price}");
-        }*/
+
         public string CompareBook(Book book)
         {
             string text = "";
-            //Console.WriteLine(this.price);
             if (this.price > book.price)
             {
                 Console.WriteLine($"{this.title} on kalliimpi kuin {book.title}.");

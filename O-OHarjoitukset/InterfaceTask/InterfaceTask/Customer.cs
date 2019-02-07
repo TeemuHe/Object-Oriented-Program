@@ -6,6 +6,7 @@ namespace InterfaceTask
 {
     class Customer
     {
-        public string customerName;
+        /*public string customerName;
+        public */
     }
 }

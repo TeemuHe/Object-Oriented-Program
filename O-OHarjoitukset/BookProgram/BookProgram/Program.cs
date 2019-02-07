@@ -6,18 +6,21 @@ namespace BookProgram
     {
         static void Main(string[] args)
         {
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Kirjat:");
 
-            Book firstBook = new Book("Aapinen");
-            firstBook.Author("Mikael Agricola");
-            firstBook.Id("22222");
-            firstBook.Price(15.89);
+            Book firstBook = new Book("Aapinen", "Mikael Agricola", "22222", 15.89);
+            //firstBook.Author();
+            //firstBook.Id();
+            //firstBook.Price();
+            firstBook.PrintInfo();
             Console.WriteLine("--------------------");
 
-            Book secondBook = new Book("Peppi Pitkätossu");
-            secondBook.Author("Astrid Lindgren");
-            secondBook.Id("12345");
-            secondBook.Price(9.99);
+            Book secondBook = new Book("Peppi Pitkätossu", "Astrid Lindgren", "12345", 29.99);
+            //secondBook.Author();
+            //secondBook.Id();
+            //secondBook.Price();
+            secondBook.PrintInfo();
             Console.WriteLine("--------------------");
 
             firstBook.CompareBook(secondBook);
