@@ -6,7 +6,7 @@ namespace InterfaceTask
 {
     interface ICustomer
     {
-        Object GetCustomer();
-        Object GetBonus();
+        Object GetCustomer(string customerName);
+        double GetBonus();
     }
 }
