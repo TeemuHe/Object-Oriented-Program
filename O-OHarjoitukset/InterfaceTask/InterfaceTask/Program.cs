@@ -10,6 +10,10 @@ namespace InterfaceTask
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("-------------------");
 
+            List<Customer> customersList = null;
+            List<Product> productsList = null;
+            Store store = new Store("Martin kauppa", 454545, customersList, productsList);
+
             Product hammer = new Product("Vasara",7.5,4);
             Product saw = new Product("Käsisaha", 12.5, 3);
             Product showel= new Product("Lapio", 9.95, 5);

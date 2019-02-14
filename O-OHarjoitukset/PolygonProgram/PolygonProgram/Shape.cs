@@ -8,5 +8,14 @@ namespace PolygonProgram
     {
         private string type;
         private string color;
+
+        public double GetArea()
+        {
+            return 
+        }
+        public double GetInfo()
+        {
+            return 
+        }
     }
 }
