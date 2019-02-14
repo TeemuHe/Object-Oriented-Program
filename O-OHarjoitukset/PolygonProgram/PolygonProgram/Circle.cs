@@ -6,29 +6,22 @@ namespace PolygonProgram
 {
     class Circle : Shape
     {
-        private double radius;
+        public double Radius { get; set; }
 
-        public Circle(double radius)
+        public Circle(double radius, string type, string color)
+            : base(type, color)
         {
-            this.radius = radius;
+            Radius = radius;
+        }
+
+        public override double GetArea()
+        {
+            return Radius * Radius * Math.PI;
         }
 
         public override string ToString()
         {
-            return $"Ympyrän säde on {this.radius}.";
-        }
-
-        public double GetArea()
-        {
-            double area = 0;
-            area = radius * 3.1415926535;
-            return area;
-        }
-
-        public void GetInfo()
-        {
-            this.GetArea();
-            Console.WriteLine($"Ympyrän pinta-ala on {GetArea():F2}");
+            return base.ToString() + $"Säde: {Radius}\tPinta-ala: {GetArea():F2}\t";
         }
     }
 }

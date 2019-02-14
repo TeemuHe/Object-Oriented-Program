@@ -6,31 +6,24 @@ namespace PolygonProgram
 {
     class Rectangle : Shape
     {
-        private double length;
-        private double width;
+        public double Length { get; set; }
+        public double Width { get; set; }
 
-        public Rectangle(double length, double width)
+        public Rectangle(double length, double width, string type, string color)
+            : base(type, color)
         {
-            this.length = length;
-            this.width = width;
+            Length = length;
+            Width = width;
+        }
+
+        public override double GetArea()
+        {
+            return Length * Width;
         }
 
         public override string ToString()
         {
-            return $"Suorakulmion korkeus on {this.length} ja leveys {this.width}.";
-        }
-
-        public double GetArea()
-        {
-            double area = 0;
-            area = length * width;
-            return area;
-        }
-
-        public void GetInfo()
-        {
-            GetArea();
-            Console.WriteLine($"Suorakulmion pinta-ala on {GetArea():F2}");
+            return base.ToString() + $"Pituus: {Length}\tLeveys: {Width}\tPinta-ala: {GetArea():F2}\t";
         }
     }
 }
