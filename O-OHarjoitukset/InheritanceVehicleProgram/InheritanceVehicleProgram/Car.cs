@@ -46,7 +46,7 @@ namespace InheritanceVehicleProgram
             }
             else
             {
-                return this.brand.Equals(carObj.brand);
+                return brand.Equals(carObj.brand);
             }
         }
     }
