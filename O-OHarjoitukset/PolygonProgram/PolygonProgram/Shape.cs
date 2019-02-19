@@ -8,9 +8,6 @@ namespace PolygonProgram
     {
         public abstract double GetArea();
 
-        /*private string type;
-        private string color;*/
-
         public string Type { get; set; }
         public string Color { get; set; }
 
