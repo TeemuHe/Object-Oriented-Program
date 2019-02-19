@@ -50,7 +50,6 @@ namespace BookAndWriterProgram
             else
             {
                 Console.WriteLine("Kirjaa ei löytynyt");
-                Environment.Exit(1);
             }
         }
 
