@@ -12,10 +12,5 @@ namespace ItemRegister
         public double Price { get; set; }
         public int Amount { get; set; }
         public string Comment { get; set; }
-
-        //public override string ToString()
-        //{
-        //    return $"Nimi: {Name}\tTuotenro: {Id}\tTuoteryhmä: {GroupName}\tHinta: {Price}\tMäärä: {Amount}\tKommetti: {Comment}";
-        //}
     }
 }
