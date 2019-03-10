@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Newtonsoft.Json;
 
 
@@ -45,8 +44,8 @@ namespace ItemRegister
 
                 foreach (Items i in itemsList)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine($"Nimi: {i.Name}\nItem number: {i.Id}\nGroup name: {i.GroupName}");
+                    Console.WriteLine("--------------------------------------------------------------");
+                    Console.WriteLine($"Nimi: {i.Name}\tItem number: {i.Id}\tGroup name: {i.GroupName}");
                 }
 
                 Console.WriteLine();
@@ -55,7 +54,7 @@ namespace ItemRegister
                 string response = Console.ReadLine().ToUpper();
                 if (response == "K")
                 {
-                    Console.WriteLine("Syötä tuotenumero(id): ");
+                    Console.Write("Syötä tuotenumero (id): ");
                     string inputId = Console.ReadLine();
                     bool found = false;
 
@@ -69,12 +68,8 @@ namespace ItemRegister
                     }
                     if (found != true)
                     {
-                        Console.WriteLine("Virheellinen syöte");
+                        Console.WriteLine("Tällä tuotenumerolla ei löydy tuotetta");
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Ei tuotteita");
                 }
             }
 
@@ -85,41 +80,27 @@ namespace ItemRegister
         {
             //First creating a list
             List<Items> items = JsonConvert.DeserializeObject<List<Items>>(File.ReadAllText(this.filePath));
-
-            foreach (Items i in itemsList)
-            {
-                if (group == i.Id)
-                {
-                    Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}\tHinta: {i.Price}\nMäärä: {i.Amount}" +
-                        $"Kommentti: {i.Comment}");
-                }
-            }
-
             foreach (Items i in items)
             {
-                if(group == "1" && i.GroupName == "Lajittelu ja säilytys")
+                if (group == "A" && i.GroupName == "Lajittelu ja säilytys")
                 {
                     Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}\tHinta: {i.Price}\nMäärä: {i.Amount}" +
-                        $"Kommentti: {i.Comment}");
+                        $"\tKommentti: {i.Comment}\n-----------------------");
                 }
-                else if(group == "2" && i.GroupName == "Paperit ja lehtiöt")
+                else if (group == "B" && i.GroupName == "Paperit ja lehtiöt")
                 {
                     Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}\tHinta: {i.Price}\nMäärä: {i.Amount}" +
-                        $"Kommentti: {i.Comment}");
+                        $"\tKommentti: {i.Comment}\n-----------------------");
                 }
-                else if (group == "3" && i.GroupName == "Kynät")
+                else if (group == "C" && i.GroupName == "Kynät")
                 {
                     Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}\tHinta: {i.Price}\nMäärä: {i.Amount}" +
-                        $"Kommentti: {i.Comment}");
+                        $"\tKommentti: {i.Comment}\n-----------------------");
                 }
-                else if (group == "4" && i.GroupName == "Kortit ja kirjekuoret")
+                else if (group == "D" && i.GroupName == "Kortit ja kirjekuoret")
                 {
                     Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}\tHinta: {i.Price}\nMäärä: {i.Amount}" +
-                        $"Kommentti: {i.Comment}");
-                }
-                else
-                {
-                    Console.WriteLine("Virheellinen syöte");
+                        $"\tKommentti: {i.Comment}\n-----------------------");
                 }
             }
             return "";
@@ -140,45 +121,60 @@ namespace ItemRegister
                         $"Kommentti: {i.Comment}");
                 }
             }
+            Console.ReadKey();
             return "";
         }
 
         public void RanOutItems()
         {
             //First creating a list
-            List<Items> items = JsonConvert.DeserializeObject<List<Items>>(File.ReadAllText(this.filePath));
+            List<Items> itemsList = JsonConvert.DeserializeObject<List<Items>>(File.ReadAllText(this.filePath));
             foreach (Items i in itemsList)
             {
-                if(i.Amount == 0)
+                if (i.Amount == 0)
                 {
-                    Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}\tHinta: {i.Price}\nMäärä: {i.Amount}" +
-                        $"Kommentti: {i.Comment}");
+                    Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\nTuoteryhmä: {i.GroupName}\nHinta: {i.Price}\nMäärä: {i.Amount}" +
+                        $"\nKommentti: {i.Comment}\n-----------------------");
                 }
             }
         }
 
-        //public void InsertJson()
-        //{
-        //    try
-        //    {
-        //        StreamReader r = new StreamReader(filePath);
-        //        string json = r.ReadToEnd();
-        //        itemsList = JsonConvert.DeserializeObject<List<Items>>(json);
-        //        PrintJson();
-        //    }
+        public void AddComment()
+        {
+            //First creating a list
+            List<Items> itemsList = JsonConvert.DeserializeObject<List<Items>>(File.ReadAllText(this.filePath));
+            Console.Write("Syötä tuotenumero, jolle halutaan lisätä kommetti: ");
+            string commentedItem = Console.ReadLine();
+            bool isReal = false;
 
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine($"Virhe: {e.Message}");
-        //    }
-        //}
+            foreach (Items i in itemsList)
+            {
 
-        //public void PrintJson()
-        //{
-        //    foreach (Items i in itemsList)
-        //    {
-        //        Console.WriteLine($"Tuote: {i.Name}\tTuotenumero: {i.Id}\tTuoteryhmä: {i.GroupName}");
-        //    }
-        //}
+
+                if (commentedItem == i.Id)
+                {
+                    isReal = true;
+
+                    Console.Write("Syötä haluttu kommentti: ");
+                    string comment = Console.ReadLine();
+
+                    if (i.Comment != commentedItem)
+                    {
+                        i.Comment += comment;
+
+                        File.WriteAllText(filePath, JsonConvert.SerializeObject(itemsList));
+                        Console.WriteLine("Kommentti lisätty");
+                    }
+                    if (isReal != true)
+                    {
+                        Console.WriteLine("Tuotetta ei löydy");
+                    }
+                    else if (i.Comment == commentedItem)
+                    {
+                        Console.WriteLine("Älä syötä samaa kommenttia uudelleen");
+                    }
+                }
+            }
+        }
     }
 }

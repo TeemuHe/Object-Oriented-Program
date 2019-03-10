@@ -23,15 +23,15 @@ namespace ItemRegister
                         break;
                     case "2":
                         Console.WriteLine("[A] Lajittelu ja säilytys\n[B] Paperit ja lehtiöt\n[C] Kynät\n[D] Kortit ja kirjekuoret");
-                        Console.WriteLine("Valitse tuoteryhmä: ");
+                        Console.Write("Valitse tuoteryhmä: ");
                         string group = Console.ReadLine().ToUpper();
                         Console.WriteLine(fileManager.PrintGroup(group));
                         break;
                     case "3":
                         fileManager.RanOutItems();
                         break;
-                    //case "4":
-                    //    fileManager.AddComment();
+                    case "4":
+                        fileManager.AddComment();
                         break;
                     case "5":
                         msg = "Ohjelma lopetetaan...";
@@ -47,7 +47,7 @@ namespace ItemRegister
 
         public static string Choise()
         {
-            Console.WriteLine("[1] Tulosta kaikki tuotteet\n[2] Tulostetaan halutun tuotteen tiedot" +
+            Console.WriteLine("[1] Tulosta kaikki tuotteet tai haluttu tuote\n[2] Tulostetaan halutun tuoteryhmän tiedot" +
                 "\n[3] Tulosta loppuneet tuotteet\n[4] Lisää tuotteelle kommentti\n[5] Poistu");
             Console.Write("Valitse mitä tehään: ");
             string choise = Console.ReadLine();
